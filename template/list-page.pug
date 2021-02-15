@@ -1,0 +1,66 @@
+doctype html
+html(lang="vi")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        link(rel="stylesheet", href="bootstrap.min.css")
+        link(rel="stylesheet", href="style.css")
+
+        title= title 
+    body
+        .container
+            h1.display-4= heading 
+
+            if breadcrumb    
+                .lead        
+                    each item in breadcrumb               
+                        a(href=item.url)= item.link 
+                        span &nbsp;/&nbsp;
+                    span= current 
+                br
+
+            if links        
+                table.table.table-striped.table-borderless.table-hover
+                    each link, index in links 
+                        tr 
+                            td(style="width: 32px;")  ##{index}
+                            td 
+                                a.d-inline-block.w-100(href=link.url)= link.title
+                br
+
+            if content 
+                .d-flex.justify-content-between
+                    if previous
+                        a(href=previous) Trước  
+                    else 
+                        div &nbsp;
+                    
+                    if next 
+                        a(href=next) Sau 
+                    else 
+                        div &nbsp;
+
+                #content
+                    each item in content 
+                        p=item
+
+                .d-flex.justify-content-between
+                    if previous
+                        a(href=previous) Trước  
+                    else 
+                        div &nbsp;
+                    
+                    if next 
+                        a(href=next) Sau 
+                    else 
+                        div &nbsp;
+            
+            if breadcrumb    
+                .lead        
+                    each item in breadcrumb               
+                        a(href=item.url)= item.link 
+                        span &nbsp;/&nbsp;
+                    span= current 
+                br
+
